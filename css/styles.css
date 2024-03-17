@@ -103,6 +103,23 @@ color: #2e2f42;
 padding-top: 24px;
 padding-bottom: 24px;
 display: block;
+transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.current {
+  position: relative;
+  
+}
+
+.current::after {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  content: "";
+  background-color: #404bbf;
+  border-radius: 2px;
+  height: 4px;
+  width: 100%;
 }
 
 .header-menu-link:hover,
@@ -121,6 +138,7 @@ display: block;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #434455;
+  transition: color cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts-link:hover,
@@ -134,6 +152,11 @@ display: block;
 
 .hero {
   background: #2e2f42;
+  background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), 
+    url(../images/people-office-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 1440рх; 
   height: 600px;
   padding-top: 188px;
   padding-bottom: 188px;
@@ -152,6 +175,7 @@ display: block;
 
 .hero-btn {
   background: #4d5ae5;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
@@ -169,6 +193,7 @@ display: block;
 .hero-btn:hover,
 .hero-btn:focus {
   background-color: #404BBF;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
 }
 
 /** ===================================== */
@@ -201,6 +226,22 @@ display: block;
 
 .features-item {
   width: calc((100% - 72px) / 4);
+}
+
+.features-box {
+  position: relative;
+  border: 1px solid #8e8f99;
+border-radius: 4px;
+width: 264px;
+height: 112px;
+background: #f4f4fd;
+}
+
+.features-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .features-subtitle {
@@ -237,7 +278,7 @@ display: block;
   margin-bottom: 72px;
 }
 
-.team-card {
+.team-cards {
   display: flex;
   gap: 24px;
   align-items: center;
@@ -247,6 +288,9 @@ display: block;
   background-color: #FFFFFF;
   width: calc((100% - 72px) / 4);
   border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+   0 1px 1px 0 rgba(46, 47, 66, 0.16), 
+   0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
 .text-item {
@@ -263,12 +307,43 @@ display: block;
   margin-bottom: 8px;
 }
 
-.team-item-profecion {
+.team-item-profession {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-align: center;
 }
+
+.social-list {
+display: flex;
+gap: 24px;
+margin-top: 8px;
+justify-content: center;
+}
+  
+
+.social-links {
+  width: 40px;
+  height: 40px;
+  background-color: #4d5ae5;;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon {
+  fill: #f4f4fd;
+}
+
+.social-links:hover {
+  background-color: #31d0aa;
+}
+
+
 
 /** ===================================== */
 
@@ -299,6 +374,37 @@ display: block;
 
 .projects-item {
   width: calc((100% - 48px) / 3);
+}
+
+.projects-item:hover {
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 
+  0 1px 1px 0 rgba(46, 47, 66, 0.16),
+  0 1px 6px 0 rgba(46, 47, 66, 0.08);
+  transition-duration: 250ms;
+}
+
+.projects-item:hover .projects-cover-text {
+  transform: translateY(0);
+}
+
+.projects-cover-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-cover-text {
+  position: absolute;
+  top: 0;
+  line-height: 1.5;
+letter-spacing: 0.02em;
+color: #f4f4fd;
+background-color: #4d5ae5;
+height: 100%;
+padding-top: 40px;
+padding-left: 32px;
+padding-right: 32px;
+transform: translateY(100%);
+transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .text-projects {
@@ -333,6 +439,11 @@ display: block;
   padding-bottom: 100px;
 }
 
+.footer-elements {
+  display: flex;
+  gap: 120px;
+}
+
 .logo-btn {
   margin-bottom: 16px;
   display: inline-block;
@@ -349,3 +460,24 @@ display: block;
   color: #f4f4fd;
   max-width: 264px;
 }
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-text-social-media {
+  font-weight: 500;
+line-height: 1.5;
+letter-spacing: 0.02em;
+color: #fff;
+}
+
+.social-media-btn {
+  display: flex;
+  max-width: 208px;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+
